@@ -48,30 +48,6 @@ openssl genpkey -algorithm RSA -out private_key.pem
 openssl rsa -pubout -in private_key.pem -out public_key.pem
 ```
 
-- Modifier le fichier `Program.cs` pour ajouter la configuration JWT.
-- Exemple d'ajout dans `Program.cs` :
-```csharp
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            // Configuration des paramètres de validation
-        };
-    });
-```
-
-## 3. Création des modèles et contrôleurs
-
-- Générer un modèle utilisateur :
-```bash
-dotnet add class User.cs
-```
-- Créer un contrôleur d'authentification :
-```bash
-dotnet add class AuthController.cs
-```
-
 ## 4. Lancement et test de l'API
 
 ### Démarrer le projet
