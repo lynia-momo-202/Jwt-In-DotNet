@@ -28,3 +28,4 @@ Le but de ce projet est de démontrer comment intégrer et utiliser les tokens J
 
 ---
 N'hésitez pas à consulter les liens ci-dessus pour approfondir vos connaissances sur JWT et son intégration avec ASP.NET.
+![alt text](<Capture d’écran du 2025-09-04 09-54-46.png>)
