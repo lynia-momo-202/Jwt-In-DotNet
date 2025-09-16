@@ -19,11 +19,11 @@ public class JwtService
         _context = context;
     }
 
-    public string GenerateToken(string userId, string audience, List<Claim> userClaims)
+    public string GenerateToken(string userName, string audience, List<Claim> userClaims)
     {
         var claims = new List<Claim>
         {
-            new Claim(JwtRegisteredClaimNames.Sub, userId),
+            new Claim(JwtRegisteredClaimNames.Sub, userName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(),ClaimValueTypes.Integer64 )
         }.Union(userClaims);
@@ -43,12 +43,12 @@ public class JwtService
 
     public string GenerateRefreshToken() => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
 
-    public async Task SaveRefreshToken(string userId, string token)
+    public async Task SaveRefreshToken(string userName, string token)
     {
         var refreshToken = new RefreshToken
         {
             Token = token,
-            UserId = userId,
+            UserName = userName,
             Expires = DateTime.UtcNow.AddDays(7),
             IsRevoked = false,
         };

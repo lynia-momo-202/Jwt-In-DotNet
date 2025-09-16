@@ -12,7 +12,7 @@ using MonAPI.Data;
 namespace MonAPI.Migrations
 {
     [DbContext(typeof(MaBaseDbContext))]
-    [Migration("20250903174707_initialisation")]
+    [Migration("20250916094523_initialisation")]
     partial class initialisation
     {
         /// <inheritdoc />
@@ -258,7 +258,7 @@ namespace MonAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

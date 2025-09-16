@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MonAPI.Data;
 
-public class MaBaseDbContext : IdentityDbContext<ApplicationUser>
+public class MaBaseDbContext : IdentityDbContext<IdentityUser>
 {
 
     public MaBaseDbContext(DbContextOptions<MaBaseDbContext> options) : base(options)
